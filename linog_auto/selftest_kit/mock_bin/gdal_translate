@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# MOCK gdal_translate (linog_auto self-test only): -of ENVI <in> <out> copies the raster (sparse) and writes <out stem>.hdr,
+# as the real one does for referenceStackCopy.py; -of VRT <in> <out> writes a small VRT. LINOG_MOCK_GDALFAIL=1: fails.
+[ -n "${LINOG_MOCK_GDALFAIL:-}" ] && { echo "MOCK gdal_translate: failed (planted)" >&2; exit 1; }
+[ "$1" = -of ] || { echo "MOCK gdal_translate: want -of FORMAT IN OUT" >&2; exit 2; }
+case "$2" in
+  ENVI) cp --sparse=always "$3" "$4" && printf 'ENVI\ndescription = {MOCK %s}\n' "$3" > "${4%.*}.hdr";;
+  VRT)  printf '<VRTDataset rasterXSize="0" rasterYSize="0"><!-- MOCK of %s --></VRTDataset>\n' "$3" > "$4";;
+  *) echo "MOCK gdal_translate: format $2" >&2; exit 2;;
+esac

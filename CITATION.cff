@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "linog_auto: automated ALOS-1 PALSAR SBAS processing pipeline of the LInOG project"
+version: "0.13r3"
+date-released: 2026-10-30
+authors:
+  - family-names: Nopre
+    given-names: "Ariel J."
+    name-suffix: "Jr."
+    affiliation: "National Institute of Geological Sciences, University of the Philippines Diliman"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/AyiemeyzingEngr/LInOG"
+keywords:
+  - InSAR
+  - SBAS
+  - ALOS PALSAR
+  - ISCE2
+  - MintPy

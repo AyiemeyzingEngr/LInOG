@@ -1,0 +1,36 @@
+LInOG: Leveraging InSAR for Observation and modeling of earthquake Generators
+linog_auto v0.13 r3 (folder linog_auto/)
+
+Copyright (C) 2026 University of the Philippines Diliman, National Institute of Geological Sciences
+[CONFIRM WITH PL: the copyright holder's name as UP Diliman gives it]
+Written by Ariel J. Nopre, Jr. for the LInOG project, funded by DOST-PCIEERD (Project No. 1212923)
+and implemented by the University of the Philippines Diliman.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version. It is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License in the file LICENSE.
+
+Third-party material in linog_auto/ (each listed in linog_auto/README.md and linog_auto/selftest_kit/README.md):
+
+1. ISCE2 (https://github.com/isce-framework/isce2), Apache License 2.0, Copyright California
+   Institute of Technology. The Apache 2.0 text is in linog_auto/selftest_kit/mock_stack/LICENSE-Apache-2.0.txt.
+   - selftest_kit/mock_stack/: byte copies of ISCE2's stackStripMap.py, Stack.py, stripmapWrapper.py,
+     invertMisreg.py and referenceStackCopy.py (stackStripMap.py and Stack.py from the conda-forge
+     isce2 2.6.4 package).
+   - selftest_kit/mock_isce/isce/components/isceobj/Sensor/CEOS.py, its db/alos_slc/ record definitions
+     (image_file.xml, image_record.xml, leader_file.xml, scene_record.xml) and
+     selftest_kit/mock_isce/isce/defaults/logging/logging.conf: byte copies from isce2 2.6.3.
+   These copies serve only the self-test's mock environment; a real run uses the installed ISCE2.
+   - unpackFrame_ALOS.py (the unpacker the pipeline runs) and its copy selftest_kit/unpackFrame_ALOS.py:
+     modified from ISCE2's stripmapStack unpackFrame_ALOS.py; the LInOG changes are in the code.
+
+2. MintPy (https://github.com/insarlab/MintPy), GNU General Public License v3 or later,
+   Copyright Zhang Yunjun and Heresh Fattahi.
+   - selftest_kit/mock_mintpy/mintpy/defaults/smallbaselineApp.cfg: a copy of MintPy 1.6.2's template.
+   - lp_p5.py and selftest_kit/kit3/linog_watermask.py import MintPy.
+
+No data is included: no ALOS-1 PALSAR data (copyright JAXA/METI) and no NAMRIA IfSAR data.
+The configuration files (linog_paths.cfg, linog_env.cfg, linog_stack.cfg) carry the authors'
+server paths; edit them for another machine. fftw/wisdom_felix.wis is an FFTW plan for that server.

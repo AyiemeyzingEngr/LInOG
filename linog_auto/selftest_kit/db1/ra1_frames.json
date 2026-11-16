@@ -1,0 +1,275 @@
+{
+ "frames": {
+  "p447 f0300": {
+   "REF_DATE": "20080421",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": [
+    "20100728"
+   ],
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20080421"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.086,
+   "zfw": 3.5342
+  },
+  "p447 f0310": {
+   "REF_DATE": "20081022",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": null,
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20081022"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.0796,
+   "zfw": 3.5099
+  },
+  "p448 f0280": {
+   "REF_DATE": "20091227",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": [
+    "20100929",
+    "20110214"
+   ],
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20091227"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.1098,
+   "zfw": 3.627
+  },
+  "p448 f0290": {
+   "REF_DATE": "20091227",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": null,
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20091227"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.1009,
+   "zfw": 3.5921
+  },
+  "p448 f0300": {
+   "REF_DATE": "20081108",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": [
+    "20100929",
+    "20110214"
+   ],
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20081108"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.1009,
+   "zfw": 3.5921
+  },
+  "p448 f0310": {
+   "REF_DATE": "20091227",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": null,
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20091227"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.1009,
+   "zfw": 3.5921
+  },
+  "p448 f0320": {
+   "REF_DATE": "20070621",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": null,
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20070621"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.093,
+   "zfw": 3.5614
+  },
+  "p449 f0280": {
+   "REF_DATE": "20091128",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": null,
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20091128"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.1199,
+   "zfw": 3.6668
+  },
+  "p449 f0290": {
+   "REF_DATE": "20080108",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": [
+    "20101016"
+   ],
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20080108"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.086,
+   "zfw": 3.5342
+  },
+  "p449 f0300": {
+   "REF_DATE": "20090713",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": null,
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20090713"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.086,
+   "zfw": 3.5342
+  },
+  "p449 f0310": {
+   "REF_DATE": "20080108",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": null,
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20080108"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.1009,
+   "zfw": 3.5921
+  },
+  "p449 f0320": {
+   "REF_DATE": "20101201",
+   "dem_error_attrs": {
+    "excludeDate": "['exclude_date.txt']",
+    "phaseVelocity": "False",
+    "polyOrder": "2",
+    "stepDate": "[]"
+   },
+   "exclude_date_txt": null,
+   "grid": [
+    658,
+    778
+   ],
+   "ref_dates": [
+    "20101201"
+   ],
+   "state": "BOUNDED",
+   "t975": 2.1009,
+   "zfw": 3.5921
+  }
+ },
+ "order": [
+  "p447 f0300",
+  "p447 f0310",
+  "p448 f0280",
+  "p448 f0290",
+  "p448 f0300",
+  "p448 f0310",
+  "p448 f0320",
+  "p449 f0280",
+  "p449 f0290",
+  "p449 f0300",
+  "p449 f0310",
+  "p449 f0320"
+ ],
+ "source": {
+  "expect_ra1.json": "bc91ba2bd89ed2aacff9cf41580b6181",
+  "ra1.json": "353dc7d44295b5c8ab3c23b2b04be315",
+  "ra1_dates.tsv": "1bf7aee1174b42b32f990f55e1528639",
+  "ra1_frames.tsv": "d6bedb3963ad2d8366f6c25066d0d5e2"
+ },
+ "what": "RA1's twelve frames for M50 (the ascending record 15.3 A, 15.4): from ra1.json each frame's dem_error attributes as MintPy 1.6.2 wrote them, its grid, REF_DATE, zero dates, exclude_date.txt and state; from expect_ra1.json its two quantiles (t975 and the line, 4 decimals); with ra1_dates.tsv and ra1_frames.tsv beside it, verbatim"
+}
