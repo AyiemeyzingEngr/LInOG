@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+"""MOCK gdalinfo (linog_auto self-test only, v0.7): `gdalinfo FILE` on a mock GeoTIFF, the lines GDAL prints for a GTiff
+band with NoData and embedded statistics. LINOG_MOCK_GDALINFO_FAIL=1: the driver line only (no metadata)."""
+import os
+import sys
+
+import linog_mock6 as M6
+
+p = sys.argv[-1]
+if not M6.is_tiff(p):
+    print('ERROR 4: %s: No such file or not recognized as a supported file format.' % p)
+    sys.exit(1)
+h, a = M6.read_tiff(p)
+print('Driver: GTiff/GeoTIFF')
+if os.environ.get('LINOG_MOCK_GDALINFO_FAIL'):
+    sys.exit(0)
+print('Files: %s' % p)
+print('Size is %d, %d' % (h['width'], h['height']))
+gt = h.get('geotransform') or [0, 1, 0, 0, 0, 1]
+print('Origin = (%.15f,%.15f)' % (gt[0], gt[3]))
+print('Pixel Size = (%.15f,%.15f)' % (gt[1], gt[5]))
+print('Band 1 Block=%dx1 Type=Float32, ColorInterp=Gray' % h['width'])
+if h.get('nodata') is not None:
+    print('  NoData Value=%s' % h['nodata'])
+md = h.get('metadata') or {}
+if md:
+    print('  Metadata:')
+    for k in sorted(md):
+        print('    %s=%s' % (k, md[k]))
