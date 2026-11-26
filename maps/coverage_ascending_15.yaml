@@ -1,0 +1,68 @@
+# All 15 ascending frames of the final SRTM set (paths 447 to 450), one map.
+# Run:  python linog_map.py examples/coverage_ascending_15.yaml --check    (preview first)
+#       python linog_map.py examples/coverage_ascending_15.yaml
+# Lines starting with # are notes; the program ignores them.
+
+output:
+  name: LINOG_COVERAGE_MAP_ASC15          # file name, without .png
+  folder: ../maps_out                   # where the map is written (made if missing)
+  formats: [png, tif]                   # any of png, tif, pdf
+  dpi: 400
+
+title: null                             # or e.g. "LInOG ascending velocity, 2007 to 2011"
+
+# Where the GeoTIFFs are: the folder LINOG_SRTM_FINAL_ALLFRAMES_v1.0_20261112 (Google Drive).
+# The frames below are read from inside it.
+data_folder: "G:/My Drive/LINOG_SRTM_FINAL_ALLFRAMES_v1.0_20261112"   # where the final SRTM folder is (change this one line)
+
+# The GeoTIFFs to draw, inside data_folder. A * matches anything.
+# Here: every ascending lead GeoTIFF (15 frames). Descending frames go in a map of their own.
+frames:
+  - ascending/P*/F*/P*_Velocity_demErr_ramp.tif
+
+draw_order: ["450", "449", "447", "448"]   # where frames overlap, the last path is on top
+box: [119.50, 122.32, 14.42, 17.22]     # west, east, south, north (degrees); or: auto
+
+frame_outlines: true
+path_labels:
+  - {text: "Path 450", lon: 119.93, lat: 16.73}
+  - {text: "Path 449", lon: 120.15, lat: 17.07}
+  - {text: "Path 448", lon: 121.03, lat: 17.12}
+  - {text: "Path 447", lon: 121.70, lat: 16.76}
+
+places:
+  # style: site (boxed, for the places the map is about), town, small, volcano, peak
+  # dx, dy: where the label sits from the point, in degrees (0.03 is about 3 km); ha: left or right
+  - {name: Cabanatuan, label: Cabanatuan City, style: site, dx: 0.045}
+  - {name: Dagupan, label: Dagupan City, style: site, dx: 0.045, dy: -0.06}
+  - {name: La Trinidad, style: site, dx: 0.045, dy: 0.035}
+  - {name: Manila, label: Metro Manila, style: site, dx: -0.045, dy: -0.045, ha: right}
+  - {name: Baguio, style: small, dx: -0.03, dy: -0.02, ha: right}
+  - {name: Tarlac City, style: small, dx: -0.028, ha: right}
+  - {name: San Fernando (Pampanga), label: San Fernando, style: small, dx: -0.028, dy: 0.012, ha: right}
+  - {name: Malolos, style: small, dx: 0.028}
+  - {name: San Jose City, style: small, dx: -0.028, ha: right}
+  - {name: Baler, style: small, dx: 0.028, dy: -0.018}
+  - {name: Iba, style: small, dx: 0.028}
+  - {name: Alaminos, label: Alaminos City, style: small, dx: 0.028}
+  - {name: Mt Pinatubo, style: volcano, dx: -0.03, ha: right}
+  - {name: Mt Arayat, style: peak, dx: 0.03, dy: 0.012}
+
+area_labels:
+  # kind: province, water, range, basin, plain
+  - {text: "Pampanga River basin", kind: basin, lon: 120.745, lat: 14.975}
+  - {text: Pangasinan, kind: province, lon: 120.40, lat: 15.86}
+  - {text: Tarlac, kind: province, lon: 120.43, lat: 15.64}
+  - {text: Nueva Ecija, kind: province, lon: 121.12, lat: 15.58}
+  - {text: Aurora, kind: province, lon: 121.78, lat: 15.98}
+  - {text: Bulacan, kind: province, lon: 121.17, lat: 14.86}
+  - {text: Zambales, kind: province, lon: 120.13, lat: 15.42}
+  - {text: Benguet, kind: province, lon: 120.80, lat: 16.67}
+  - {text: "Lingayen\nGulf", kind: water, lon: 120.20, lat: 16.34}
+  - {text: "Manila\nBay", kind: water, lon: 120.72, lat: 14.70}
+  - {text: "Philippine\nSea", kind: water, lon: 121.86, lat: 15.27}
+  - {text: Sierra Madre, kind: range, lon: 121.40, lat: 15.10, rotation: 78}
+  - {text: Cordillera Central, kind: range, lon: 120.99, lat: 16.76, rotation: 78}
+
+credits:
+  velocity: "Velocity: LInOG final SRTM set (v1.0 to v1.2), 15 ascending ALOS-1 PALSAR frames, paths 447 to 450, 2007 to 2011, LOS, ramp removed (path 448 on top); ALOS PALSAR data © JAXA/METI."

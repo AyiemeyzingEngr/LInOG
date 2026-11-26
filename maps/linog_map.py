@@ -33,14 +33,14 @@ from scipy import ndimage as nd
 from shapely.geometry import LineString, MultiPoint, Point, Polygon, box as sbox
 from shapely.ops import nearest_points, unary_union
 
-VERSION = "1.0 (26 Nov 2026)"
+VERSION = "1.1 (26 Nov 2026)"
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = 1.0 / 1200.0                      # the LInOG product lattice: 3 arc seconds (about 90 m)
 NAVY = "#0B2545"
 CMAP_NAME = "RdYlBu_r"
 EOX_URL = "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2024/default/WGS84/%d/%d/%d.jpg"
 GADM_URL = "https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_PHL_1.json.zip"
-UA = {"User-Agent": "LInOG-map/1.0 (NIGS UP Diliman research maps)"}
+UA = {"User-Agent": "LInOG-map/1.1 (NIGS UP Diliman research maps)"}
 HB = [pe.withStroke(linewidth=2.2, foreground="black", alpha=0.85)]
 HB_S = [pe.withStroke(linewidth=1.7, foreground="black", alpha=0.85)]
 LINE_HALO = [pe.withStroke(linewidth=2.6, foreground=NAVY, alpha=0.65)]
@@ -50,8 +50,9 @@ DEFAULTS = {
     "output": {"name": "LINOG_MAP", "folder": ".", "formats": ["png", "tif"], "dpi": 400,
                "png_background": "transparent"},
     "title": None,
+    "data_folder": None,
     "frames": [],
-    "draw_order": ["449", "447", "448"],
+    "draw_order": ["450", "449", "447", "448"],
     "units": "m/yr",
     "box": "auto",
     "box_margin_deg": 0.05,
@@ -118,8 +119,12 @@ FRAME_RE = re.compile(r"P(\d{3})F(\d{4})", re.I)
 def frame_files(c):
     """The GeoTIFFs named in 'frames' (paths or wildcard patterns), each with its path number, in drawing order."""
     files = []
+    base = rel(c, c["data_folder"]) if c.get("data_folder") else None
+    if base and not os.path.isdir(base):
+        sys.exit("data_folder: not found: %s (check the path; on Windows write it with / and in quotes)" % base)
     for item in c["frames"]:
-        pat = rel(c, item)
+        p_ = os.path.expanduser(str(item))
+        pat = p_ if os.path.isabs(p_) else (os.path.join(base, p_) if base else rel(c, p_))
         hits = sorted(glob.glob(pat, recursive=True))
         if not hits:
             sys.exit("frames: nothing found for %s" % pat)
@@ -130,6 +135,10 @@ def frame_files(c):
     for f in files:
         m = FRAME_RE.search(os.path.basename(f))
         out.append(dict(path=f, track=m.group(1) if m else "?", name=("P%sF%s" % m.groups()) if m else os.path.basename(f)))
+    desc = [r["name"] for r in out if (r["track"] != "?" and int(r["track"]) < 200) or "descending" in r["path"].lower()]
+    if desc and len(desc) < len(out):
+        sys.exit("frames: ascending and descending frames in one map (%s): they look in opposite directions, so their LOS "
+                 "velocities do not join. Make one map for each direction." % ", ".join(desc))
     order = [str(x) for x in c["draw_order"]]
     out.sort(key=lambda r: order.index(r["track"]) if r["track"] in order else -1)   # unknown paths first, listed last on top
     return out
@@ -384,7 +393,7 @@ def draw(c, check=False):
     # frame outlines
     if c["frame_outlines"]:
         sty = {"448": dict(color="white", ls="-", lw=1.0), "449": dict(color="#CFE0EC", ls=(0, (5, 2.2)), lw=1.0),
-               "447": dict(color="#CFE0EC", ls=(0, (1.4, 1.6)), lw=1.2)}
+               "447": dict(color="#CFE0EC", ls=(0, (1.4, 1.6)), lw=1.2), "450": dict(color="white", ls=(0, (6, 2, 1.4, 2)), lw=1.0)}
         for r in frames:
             h = hull(r)
             if h is not None:
@@ -468,11 +477,21 @@ def draw(c, check=False):
     if c["arrows"]["enabled"]:
         hd = float(c["arrows"]["heading_deg"])
         at = c["arrows"].get("at", "lower left")
-        ox = W + 0.06 * (E - W) if "left" in at else E - 0.20 * (E - W)
-        oy = S + 0.05 * (N - S) if "lower" in at else N - 0.18 * (N - S)
+        # the two arrows' tips from their common tail; the tail is placed so both stay in the chosen corner
+        # (an ascending heading points up and right, a descending one down and left: v1.1)
+        vec = lambda az, d: (d * math.sin(math.radians(az)) * asp, d * math.cos(math.radians(az)))
+        (fdx, fdy), (ldx, ldy) = vec(hd, 0.10 * span), vec(hd + 90.0, 0.08 * span)
+        xs, ys = (0.0, fdx, ldx), (0.0, fdy, ldy)
+        pad_x, pad_y = 0.05 * (E - W), 0.06 * (N - S)
+        ox = W + pad_x - min(xs) if "left" in at else E - 0.24 * (E - W) - max(xs)
+        oy = S + pad_y - min(ys) if "lower" in at else N - pad_y - max(ys)
         fx, fy = arrow(ox, oy, hd, 0.10 * span); lx, ly = arrow(ox, oy, hd + 90.0, 0.08 * span)
-        ax.text(fx, fy + 0.008 * span, "Flight", color="white", fontsize=6.0, ha="center", va="bottom", zorder=14, path_effects=HB_S)
-        ax.text(lx + 0.006 * span, ly, "LOS", color="white", fontsize=6.8, fontweight="bold", ha="left", va="center", zorder=14, path_effects=HB_S)
+        up = fdy >= 0
+        ax.text(fx, fy + (0.008 if up else -0.008) * span, "Flight", color="white", fontsize=6.0, ha="center",
+                va="bottom" if up else "top", zorder=14, path_effects=HB_S)
+        right = ldx >= 0
+        ax.text(lx + (0.006 if right else -0.006) * span, ly, "LOS", color="white", fontsize=6.8, fontweight="bold",
+                ha="left" if right else "right", va="center", zorder=14, path_effects=HB_S)
     if c["north_arrow"]:
         nx_, ny_ = W + (E - W) * 0.94, S + (N - S) * 0.88
         ax.annotate("", xy=(nx_, ny_ + 0.06 * span), xytext=(nx_, ny_ - 0.01 * span), zorder=14,

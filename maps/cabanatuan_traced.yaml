@@ -10,9 +10,10 @@ output:
 
 title: "Cabanatuan City: LOS velocity, 2007 to 2011"
 
+data_folder: "G:/My Drive/LINOG_SRTM_FINAL_ALLFRAMES_v1.0_20261112"   # where the final SRTM folder is (change this one line)
 frames:
-  - ../../LINOG_DELIVERY_v1.2_20260924_final/p448/f0290/*/P448F0290_Velocity_demErr_ramp.tif
-  - ../../LINOG_DELIVERY_v1.2_20260924_final/p449/f0290/*/P449F0290_Velocity_demErr_ramp.tif
+  - ascending/P448/F0290/P448F0290_Velocity_demErr_ramp.tif
+  - ascending/P449/F0290/P449F0290_Velocity_demErr_ramp.tif
 
 draw_order: ["449", "448"]
 box: [120.70, 121.25, 15.25, 15.70]

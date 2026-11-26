@@ -10,10 +10,16 @@ output:
 
 title: null                             # or e.g. "LInOG ascending velocity, 2007 to 2011"
 
-# The GeoTIFFs to draw. A * matches anything, ** any folder depth.
-# Here: every Velocity_demErr_ramp GeoTIFF in the v1.2 delivery, placed next to the linog_map folder.
+# Where the GeoTIFFs are: the folder LINOG_SRTM_FINAL_ALLFRAMES_v1.0_20261112 (Google Drive).
+# The frames below are read from inside it.
+data_folder: "G:/My Drive/LINOG_SRTM_FINAL_ALLFRAMES_v1.0_20261112"   # where the final SRTM folder is (change this one line)
+
+# The GeoTIFFs to draw, inside data_folder. A * matches anything.
+# Here: the 12 frames of the v1.2 delivery (P447 F0300 and F0310, P448 F0280 to F0320, P449 F0280 to F0320).
 frames:
-  - ../../LINOG_DELIVERY_v1.2_20260924_final/p44*/f*/*/P*_Velocity_demErr_ramp.tif
+  - ascending/P447/F03*/P*_Velocity_demErr_ramp.tif
+  - ascending/P448/F*/P*_Velocity_demErr_ramp.tif
+  - ascending/P449/F*/P*_Velocity_demErr_ramp.tif
 
 draw_order: ["449", "447", "448"]       # where frames overlap, the last path is on top
 box: [119.92, 122.12, 14.42, 17.22]     # west, east, south, north (degrees); or: auto
