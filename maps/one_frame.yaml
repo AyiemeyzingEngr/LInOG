@@ -1,0 +1,21 @@
+# One frame, box chosen from the frame itself. The shortest useful settings file.
+# Run:  python linog_map.py examples/one_frame.yaml
+# The sinking area at Cabanatuan is traced, and its label points at the traced edge,
+# so no marker sits on the blue (the LInOG map rule of 12 Nov 2026).
+
+output:
+  name: LINOG_P448F0290_VELOCITY
+  folder: ../maps_out
+
+frames:
+  - ../../LINOG_DELIVERY_v1.2_20260924_final/p448/f0290/*/P448F0290_Velocity_demErr_ramp.tif
+
+box: auto
+grid: {every_minutes: 15, minor_minutes: 5}
+
+trace: {enabled: true}
+
+places:
+  - {name: Cabanatuan, label: Cabanatuan City, style: site, point_to_trace: true, dx: 0.14, dy: -0.07}
+  - {name: Gapan City, style: town}
+  - {name: Palayan City, style: town}

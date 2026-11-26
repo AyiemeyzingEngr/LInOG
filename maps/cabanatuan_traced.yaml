@@ -1,0 +1,43 @@
+# A zoom on Cabanatuan City from two tracks, with the sinking area traced (no marker on the blue).
+# Run:  python linog_map.py examples/cabanatuan_traced.yaml --check    (preview first)
+#       python linog_map.py examples/cabanatuan_traced.yaml
+
+output:
+  name: LINOG_CABANATUAN_TRACED
+  folder: ../maps_out
+  formats: [png, pdf]
+  dpi: 400
+
+title: "Cabanatuan City: LOS velocity, 2007 to 2011"
+
+frames:
+  - ../../LINOG_DELIVERY_v1.2_20260924_final/p448/f0290/*/P448F0290_Velocity_demErr_ramp.tif
+  - ../../LINOG_DELIVERY_v1.2_20260924_final/p449/f0290/*/P449F0290_Velocity_demErr_ramp.tif
+
+draw_order: ["449", "448"]
+box: [120.70, 121.25, 15.25, 15.70]
+map_height_in: 4.0
+grid: {every_minutes: 10, minor_minutes: 5}
+scale_bar_km: 10
+
+trace:
+  enabled: true
+  level_cm: -1.5          # trace where the smoothed velocity is -1.5 cm/yr or less
+  min_area_km2: 1.0       # ignore smaller patches
+  smooth_px: 11           # smoothing window, pixels (11 is about 1 km)
+  offset_px: 7            # the line sits this many pixels outside the blue
+
+places:
+  - {name: Cabanatuan, label: Cabanatuan City, style: site, point_to_trace: true, dx: 0.10, dy: 0.09}
+  - {name: San Leonardo, style: small, dx: -0.012, ha: right}
+  - {name: Jaen, style: small, dx: -0.012, ha: right}
+  - {name: Santa Rosa, style: small, dx: -0.012, ha: right}
+  - {name: Talavera, style: small, dx: 0.012}
+  - {name: Palayan City, style: small, dx: 0.012}
+  - {name: Gapan City, style: small, dx: 0.012}
+
+arrows: {enabled: true, heading_deg: -12, at: lower left}
+
+credits:
+  velocity: "Velocity: LInOG v1.2, P448 F0290 drawn over P449 F0290, LOS, ramp removed; ALOS PALSAR data © JAXA/METI."
+  extra: ["Traced: smoothed velocity of -1.5 cm/yr or less, patches of 1 km² or more; the line runs about 0.6 km outside the edge."]

@@ -1,0 +1,274 @@
+{
+ "Agoo": {
+  "lat": 16.3224,
+  "lon": 120.367
+ },
+ "Alaminos": {
+  "lat": 16.15539,
+  "lon": 119.97922
+ },
+ "Aliaga": {
+  "lat": 15.50328,
+  "lon": 120.84556
+ },
+ "Angeles": {
+  "lat": 15.13481,
+  "lon": 120.59069
+ },
+ "Bagac": {
+  "lat": 14.59678,
+  "lon": 120.39233
+ },
+ "Baguio": {
+  "lat": 16.41199,
+  "lon": 120.59339
+ },
+ "Balanga": {
+  "lat": 14.67957,
+  "lon": 120.54097
+ },
+ "Baler": {
+  "lat": 15.75909,
+  "lon": 121.56272
+ },
+ "Bamban": {
+  "lat": 15.27332,
+  "lon": 120.56727
+ },
+ "Bayombong": {
+  "lat": 16.48293,
+  "lon": 121.15052
+ },
+ "Bolinao": {
+  "lat": 16.38866,
+  "lon": 119.89321
+ },
+ "Bongabon": {
+  "lat": 15.63216,
+  "lon": 121.14593
+ },
+ "Botolan": {
+  "lat": 15.289,
+  "lon": 120.02474
+ },
+ "Cabanatuan": {
+  "lat": 15.4905,
+  "lon": 120.96843
+ },
+ "Cabanatuan City": {
+  "lat": 15.4905,
+  "lon": 120.96843
+ },
+ "Camiling": {
+  "lat": 15.68646,
+  "lon": 120.41466
+ },
+ "Candelaria": {
+  "lat": 15.62713,
+  "lon": 119.93013
+ },
+ "Capas": {
+  "lat": 15.33603,
+  "lon": 120.58958
+ },
+ "Castillejos": {
+  "lat": 14.93207,
+  "lon": 120.20054
+ },
+ "Clark": {
+  "lat": 15.18717,
+  "lon": 120.55746
+ },
+ "Dagupan": {
+  "lat": 16.04302,
+  "lon": 120.33376
+ },
+ "Dasol": {
+  "lat": 15.99023,
+  "lon": 119.88114
+ },
+ "Dinalupihan": {
+  "lat": 14.8674,
+  "lon": 120.46103
+ },
+ "Dingalan": {
+  "lat": 15.38941,
+  "lon": 121.39272
+ },
+ "Floridablanca": {
+  "lat": 14.9746,
+  "lon": 120.52772
+ },
+ "Fort Magsaysay": {
+  "lat": 15.42422,
+  "lon": 121.11059
+ },
+ "Gabaldon": {
+  "lat": 15.45094,
+  "lon": 121.33835
+ },
+ "Gapan City": {
+  "lat": 15.31228,
+  "lon": 120.94794
+ },
+ "General Tinio": {
+  "lat": 15.35013,
+  "lon": 121.0498
+ },
+ "Hermosa": {
+  "lat": 14.83025,
+  "lon": 120.50864
+ },
+ "Iba": {
+  "lat": 15.32646,
+  "lon": 119.9801
+ },
+ "Infanta (Pangasinan)": {
+  "lat": 15.82513,
+  "lon": 119.90567
+ },
+ "Jaen": {
+  "lat": 15.33714,
+  "lon": 120.90595
+ },
+ "La Trinidad": {
+  "lat": 16.44978,
+  "lon": 120.59009
+ },
+ "Laur": {
+  "lat": 15.57972,
+  "lon": 121.18652
+ },
+ "Lingayen": {
+  "lat": 16.02064,
+  "lon": 120.23071
+ },
+ "Mabini (Pangasinan)": {
+  "lat": 16.06986,
+  "lon": 119.93948
+ },
+ "Malolos": {
+  "lat": 14.84376,
+  "lon": 120.81137
+ },
+ "Manila": {
+  "lat": 14.59045,
+  "lon": 120.98036
+ },
+ "Mariveles": {
+  "lat": 14.4356,
+  "lon": 120.49034
+ },
+ "Masinloc": {
+  "lat": 15.53864,
+  "lon": 119.94969
+ },
+ "Mayantoc": {
+  "lat": 15.61928,
+  "lon": 120.37797
+ },
+ "Morong": {
+  "lat": 14.678,
+  "lon": 120.26526
+ },
+ "Mt Arayat": {
+  "lat": 15.20129,
+  "lon": 120.74311
+ },
+ "Mt Mariveles": {
+  "lat": 14.52846,
+  "lon": 120.48151
+ },
+ "Mt Natib": {
+  "lat": 14.71194,
+  "lon": 120.39972
+ },
+ "Mt Pinatubo": {
+  "lat": 15.14456,
+  "lon": 120.34906
+ },
+ "Mt Tapulao": {
+  "lat": 15.48102,
+  "lon": 120.12131
+ },
+ "Olongapo": {
+  "lat": 14.83745,
+  "lon": 120.27811
+ },
+ "Palauig": {
+  "lat": 15.43362,
+  "lon": 119.91077
+ },
+ "Palayan City": {
+  "lat": 15.54087,
+  "lon": 121.0843
+ },
+ "Pantabangan Dam": {
+  "lat": 15.81175,
+  "lon": 121.11293
+ },
+ "Penaranda": {
+  "lat": 15.3526,
+  "lon": 120.99989
+ },
+ "Porac": {
+  "lat": 15.07265,
+  "lon": 120.54302
+ },
+ "San Fernando (La Union)": {
+  "lat": 16.61627,
+  "lon": 120.3171
+ },
+ "San Fernando (Pampanga)": {
+  "lat": 15.0283,
+  "lon": 120.6938
+ },
+ "San Isidro": {
+  "lat": 15.30912,
+  "lon": 120.90681
+ },
+ "San Jose (Tarlac)": {
+  "lat": 15.47759,
+  "lon": 120.46397
+ },
+ "San Jose City": {
+  "lat": 15.8019,
+  "lon": 120.99562
+ },
+ "San Leonardo": {
+  "lat": 15.36185,
+  "lon": 120.95803
+ },
+ "San Narciso": {
+  "lat": 15.01552,
+  "lon": 120.07937
+ },
+ "Santa Cruz": {
+  "lat": 15.76261,
+  "lon": 119.91
+ },
+ "Santa Rosa": {
+  "lat": 15.42471,
+  "lon": 120.93805
+ },
+ "Subic": {
+  "lat": 14.87748,
+  "lon": 120.23447
+ },
+ "Talavera": {
+  "lat": 15.58426,
+  "lon": 120.9184
+ },
+ "Tarlac City": {
+  "lat": 15.48612,
+  "lon": 120.58935
+ },
+ "Urdaneta": {
+  "lat": 15.976,
+  "lon": 120.5669
+ },
+ "Zaragoza": {
+  "lat": 15.44758,
+  "lon": 120.79355
+ }
+}

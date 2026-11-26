@@ -1,0 +1,16 @@
+# conda environment for linog_map.py
+#   conda env create -f environment.yml
+#   conda activate linog_map
+name: linog_map
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - matplotlib
+  - rasterio
+  - shapely
+  - scikit-image
+  - pyyaml
+  - pillow
